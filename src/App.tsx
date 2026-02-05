@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
-import { 
-  LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, Legend, ResponsiveContainer, 
-  AreaChart, Area, ComposedChart, Cell 
+import { useState } from 'react';
+import {
+  BarChart, Bar, XAxis, YAxis, CartesianGrid,
+  Tooltip as RechartsTooltip, Legend, ResponsiveContainer,
+  ComposedChart, Cell, Line
 } from 'recharts';
+
 import { 
   LayoutDashboard, Globe, TrendingDown, TrendingUp, Anchor, 
-  FileText, Euro, Truck, ShoppingCart, CloudRain, PoundSterling, Factory
+  FileText, Euro, CloudRain, PoundSterling, Factory
 } from 'lucide-react';
 // import './App.css'; // Make sure you have a blank App.css file
 
@@ -37,11 +39,11 @@ const japanFryCompetition = [
 ];
 
 // Belgium Price Gap Analysis
-const belgiumPriceGap = [
-  { month: 'Oct 25', freebuy: 15, contract: 200 },
-  { month: 'Dec 25', freebuy: 15, contract: 210 },
-  { month: 'Feb 26', freebuy: 15, contract: 238 }, 
-];
+//const belgiumPriceGap = [
+//  { month: 'Oct 25', freebuy: 15, contract: 200 },
+//  { month: 'Dec 25', freebuy: 15, contract: 210 },
+//  { month: 'Feb 26', freebuy: 15, contract: 238 }, 
+// ];
 
 // Contract Trends 2026
 const contractTrends = [
@@ -120,8 +122,8 @@ export default function PotatoDashboard() {
                 <YAxis dataKey="contract" type="category" stroke="#f3f4f6" width={100} />
                 <RechartsTooltip cursor={{fill: '#334155', opacity: 0.2}} contentStyle={{ backgroundColor: '#1e293b', borderColor: '#334155' }} />
                 <Bar dataKey="price" name="Settlement Price (€)" radius={[0, 4, 4, 0]} barSize={40}>
-                  {futuresData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={index === 0 ? '#ef4444' : '#22c55e'} />
+                  {futuresData.map((_, index) => (
+                     <Cell key={`cell-${index}`} fill={index === 0 ? '#ef4444' : '#22c55e'} />
                   ))}
                 </Bar>
               </BarChart>
